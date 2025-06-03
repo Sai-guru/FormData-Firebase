@@ -18,6 +18,7 @@ function Form() {
             return;
         }
         
+        
         if (number && number.length !== 10) {
             setError("Phone number must be exactly 10 digits.");
             return;
@@ -31,7 +32,7 @@ function Form() {
         };
 
         try {
-            const response = await fetch('https://formdatafirebasedb-default-rtdb.firebaseio.com/UserData.json', {
+            const response = await fetch(import.meta.env.VITE_FIREBASE_LINK, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
